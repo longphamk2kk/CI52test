@@ -1,28 +1,36 @@
-let a1 = prompt("nhap mang 1").split(",")
-let a2 = prompt('nhap mang 2').split(",")
+let Data = [{
+        name: "Arsenal",
+        points: 99,
+        GD: 45
+    },
+    {
+        name: "Chelsea",
+        points: 75,
+        GD: 39,
+    },
+    {
+        name: "Manchester United",
+        points: 60,
+        GD: 29,
+    },
+    {
+        name: "Liverpool",
+        points: 88,
+        GD: 39,
+    },
+]
+console.log(Data)
 
-function phan_tu(a1, a2) {
-
-    let a = [],
-        a3 = []
-
-    for (let i = 0; i < a1.length; i++) {
-        a[a1[i]] = true;
+function compare(a, b) {
+    if (a.points > b.points) {
+        return -1;
     }
-
-    for (let i = 0; i < a2.length; i++) {
-        if (a[a2[i]]) {
-            delete a[a2[i]];
-        } else {
-            a[a2[i]] = true;
-        }
+    if (a.points < b.points) {
+        return 1;
     }
-
-    for (let k in a) {
-        a3.push(k);
-    }
-
-    return a3;
+    return 0
 }
-phan_tu(a1, a2)
-console.log(phan_tu(a1, a2));
+
+
+Data.sort(compare)
+console.log(Data)
